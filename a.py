@@ -1,6 +1,6 @@
-alist=[1,3,5,7,9]
+input_list=[[1,2,3],[4,5,6],[7,8]]
+answer_list=[]
+for i in range(len(input_list)):
+	answer_list.append(len(input_list[i]))
 
-print(alist[1:3])
-print(alist[2:])
-print(alist[:3])
-print(alist[::2])
+print(answer_list)
