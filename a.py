@@ -1,5 +1,3 @@
-num = int(input())
-if num%2==1:
-	print("odd")
-else :
-	print("even")
+n = int(input())
+for i in range(n):
+	print ("*"*(n-i))
