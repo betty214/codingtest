@@ -1,13 +1,22 @@
 H,U,D,F=list(map(int,input().split(" ")))
-length=0
-d=0
+pos=0
+tired=U*(F/100)
+flag=True
+#한번이라도 이조건에 해당했을때
+#한번이라도 이조건에 해당하지 않았을때 사용
+
 while True:
-	d=d+1
-	length=length+U-D
-	U=U*(100-F)/100
-	if length<0:
-		print("Failure")
-		break
-	if H<length:
-		print("Success %d" %(d-1))
-		break
+    pos+=U
+    if pos>=H:
+        break #성공
+    if U<0:
+        flag=False #실패
+        break
+    U-=tired
+    pos-=D
+    date+=1
+
+if flag==True:
+    print("Success", date,)
+else:
+    print("Fail")
