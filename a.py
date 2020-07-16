@@ -1,13 +1,13 @@
 n = int(input())
-
-def fib(n):
+cache=[-1 for i in range(21)]
+def t(n):
 	if n==1:
 		return 1
-	elif n==2:
-		return 1
+	if n==2:
+		return 2
+	if cache[n]!=-1:
+		return cache[n]
 	else:
-		return fib(n-1)+fib(n-2)
-plus=0
-for i in range(n):
-	plus=plus+fib(i+1)
-print(plus)
+		return t(n-1)+t(n-2)
+
+print(t(n))
