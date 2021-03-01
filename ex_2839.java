@@ -3,21 +3,32 @@ package backjun;
 import java.util.Scanner;
 
 public class ex_2839 {
-	public static int[] dpmemory;
-	public static int result=0;
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		System.out.println(dpSweet(n,result));
-	}
+	public static void main(String args[]){
+            Scanner sc = new Scanner(System.in);
+            int N = sc.nextInt();
 
-	public static int dpSweet(int n, int r) {
-		if (n==3 || n==5) {
-			return r;
-		} else if (n%3==0) {
-			
-		} else if (n%5==0) {
-			System.out.println(2);
-		}
-	}
+            int[] dynamic = new int[N + 1];
+            int[] defaultab = {-1, -1, -1, 1, -1, 1, 2, -1};
+
+            if (N <= 7) {
+                System.out.println(defaultab[N]);
+                return;
+            }
+            else
+                for (int i = 0; i <= 7; i++)
+                    dynamic[i] = defaultab[i];
+
+            for (int i = 8; i <= N; i++)
+
+                if(dynamic[i-5] != -1 && dynamic[i-3] != -1)
+                    dynamic[i] = 1 + Math.min(dynamic[i - 3], dynamic[i - 5]);
+
+                else if(dynamic[i-5] == -1 && dynamic[i-3] != -1)
+                    dynamic[i] = 1 + dynamic[i-3];
+
+                else if(dynamic[i-5] != -1 && dynamic[i-3] == -1)
+                    dynamic[i] = 1 + dynamic[i-5];
+
+            System.out.println(dynamic[N]);
+    }
 }
