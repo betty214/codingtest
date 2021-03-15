@@ -21,12 +21,18 @@ public class ex_18806 {
 		
 	}
 	public static boolean check(String s, String t) {
-		if(s.equals(t)) {
+		int slen =s.length();
+		int tlen =t.length();
+		int nth=0;
+		int skip=0;
+		
+		while (nth < slen && nth < tlen && (s.charAt(nth) == '?' || s.charAt(nth) == t.charAt(nth) || t.charAt(nth) == '?') ) {
+			System.out.println(s.charAt(nth)+" "+nth);
+			nth ++;			
+		}if (slen == nth && nth == tlen) {
 			return true;
-		}else if(s.equals("*") || t.equals("*")){
+		}else if (s.charAt(nth) == '*') {
 			return true;
-		}else {
-			return false;
-		}
+		}return false;
 	}
 }
