@@ -31,7 +31,7 @@ public class ex_18806 {
 			nth ++;			
 		}if (slen == nth && nth == tlen) {
 			return true;
-		}else if (s.charAt(nth) == '*') {
+		}else if (s.charAt(nth) == '*' ||t.charAt(nth) == '*') {
 			return true;
 		}return false;
 	}
