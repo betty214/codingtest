@@ -6,6 +6,7 @@ public class ex_11055 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 	    int n = scan.nextInt();
+		
 	    int []array = new int[n];
 	    int []DP=new int[n];
 	    int []sum=new int[n];
