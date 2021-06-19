@@ -14,7 +14,7 @@ public class ex_16953 {
 		int count=1;
 		int flag=0;
 		while(B!=A) {
-			if(B<A) {
+			if(B%10!=1&&B%2!=0||B<A) {
 				flag=1;
 				break;
 			}
