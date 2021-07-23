@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-23T07:40:55.304Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="KVfwJfG7UXTL07Jv4r-r" version="14.9.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-23T07:40:59.472Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="L1nbHnJMecG4wkp7jXYF" version="14.9.2" type="github">
   <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
     <mxGraphModel dx="782" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -123,13 +123,6 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="625" y="630" as="sourcePoint" />
             <mxPoint x="380" y="630" as="targetPoint" />
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="knwIie3YdM3t9hbyY5Hr-26" value="태그 혹은 유사 태그의 결과 반환" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="635" y="510" as="sourcePoint" />
-            <mxPoint x="390" y="510" as="targetPoint" />
             <Array as="points" />
           </mxGeometry>
         </mxCell>
