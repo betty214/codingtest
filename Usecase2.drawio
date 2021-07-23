@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-23T08:31:20.752Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="Qrt9xoU8JkN1ORpAfPLz" version="14.9.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-23T08:31:27.282Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="FHBVkFFVQVXh5nYv5Fv4" version="14.9.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="782" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -65,7 +65,7 @@
           <mxGeometry x="660" y="360" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="WKpN-5hXNMar261MFXX0-9" value="&quot;검색한 결과가 없습니다&quot; 메시지 출력" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="415" y="490" width="145" height="50" as="geometry" />
+          <mxGeometry x="405" y="490" width="145" height="50" as="geometry" />
         </mxCell>
         <mxCell id="SNdogMNafwZ7u30gBImC-1" value="사진을 클릭하였는가?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="110" y="510" width="170" height="80" as="geometry" />
