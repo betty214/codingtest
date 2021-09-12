@@ -3,14 +3,13 @@ package backjun;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class ex_1325 {
     static ArrayList<Integer> [] computer;
-    static int [][]answer;
+    static int []answer;
+    static boolean[]visited;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -27,38 +26,34 @@ public class ex_1325 {
             }
             computer[end].add(start);
         }
-        answer=new int[N+1][2];
+        answer=new int[N];
         for(int i=0;i<N;i++){
-            answer[i][0]=i+1;
-            answer[i][1]=1;
-        }
-        for(int i=0;i<N;i++){
+            visited=new boolean[N+1];
+            visited[i+1]=true;
             DFS(i+1,i+1);
-
         }
         int max=0;
         for(int i=0;i<N;i++){
-            if(max<answer[i][1]){
-                max=answer[i][1];
+            if(max<answer[i]){
+                max=answer[i];
             }
         }
-        ArrayList<Integer> answer_list=new ArrayList<>();
-        for(int i=0;i<N;i++){
-            if(answer[i][1]==max){
-                answer_list.add(answer[i][0]);
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<N; i++){
+            if(max == answer[i]){
+                sb.append((i+1)+" ");
             }
-        }Collections.sort(answer_list);
-        for(int i=0;i<answer_list.size();i++) {
-            System.out.println(answer_list.get(i));
         }
+        System.out.println(sb.toString());
     }
     static void DFS(int s,int n){
-        if(computer[n]==null){
-            return;
-        }else{
+        if(computer[n]!=null){
             for(int i=0;i<computer[n].size();i++){
-                answer[s-1][1]++;
-                DFS(s,computer[n].get(i));
+                if(!visited[computer[n].get(i)]){
+                    visited[computer[n].get(i)]=true;
+                    answer[s-1]++;
+                    DFS(s,computer[n].get(i));
+                }
             }
         }
     }
