@@ -35,6 +35,5 @@ public class ex_11404 {
             }
             System.out.println();
         }
-
     }
 }
