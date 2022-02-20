@@ -10,6 +10,7 @@ import java.util.Collections;
 public class ex_2517 {
     static ArrayList<Integer>sort;
     static long[]segment;
+    static int[]arr;
     static int N;
     public static void main(String[] args) throws IOException {
         System.setIn(new FileInputStream("code/src/input/2517.txt"));
@@ -22,33 +23,31 @@ public class ex_2517 {
             sort.add(index[i]);
         }
         Collections.sort(sort);
-        init();
+        segment=new long[N*4];
         for(int i=0;i<N;i++){
             System.out.println(run(index[i]));
+            System.out.println();
         }
-    }static long run(int i){
-        int now = sort.indexOf(i);
-        long count=query(0,0,N-1,now+1,N-1);
-        update(0,0,N-1,now);
-        return count+1;
-    }static void init() {
-        double treeHeight = Math.ceil(Math.log(N)/Math.log(2))+1;
-        long treeNodeCount = Math.round(Math.pow(2, treeHeight));
-        segment = new long[Math.toIntExact(treeNodeCount)];
-    }static long query(int node, int start, int end, int left, int right) {
-        if (end < left || right < start) return 0;
-        else if (left <= start && end <= right) return segment[node];
-        else {
-            return query(node*2, start, (start+end)/2, left, right) + query(node*2+1, (start+end)/2+1, end, left, right);
+    }static void update(int start, int end, int node, int idx) {
+        if(idx<start || idx>end) return;
+        segment[node]+=1;
+        if(start==end) return;
+        int mid=(start+end)/2;
+        update(start, mid, node*2,idx);
+        update(mid+1, end, node*2+1,idx);
+    }static long run(int now){
+        int index=sort.indexOf(now);
+        long ans=sum(0,N-1, index+1, N-1,0);
+        update(0,N-1,0,index);
+        for(int i=0;i<N;i++){
+            System.out.print(segment[i]+" ");
         }
-    }static void update(int node, int start, int end, int index) {
-        if (index < start || end < index)  return;
-        else {
-            segment[node] = segment[node] + 1;
-            if (start != end) {
-                update(node*2, start, (start+end)/2, index) ;
-                update(node*2+1, (start+end)/2+1, end, index) ;
-            }
-        }
+        System.out.println();
+        return ans;
+    }static long sum(int start, int end, int left, int right,int node){
+        if(left>end||right<start) return 0;
+        if(left<=start&& right>=end) return segment[node];
+        int mid=(start+end)/2;
+        return sum(start, mid, left, right, node*2)+sum(mid+1,end, left, right, node*2+1);
     }
 }
