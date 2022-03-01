@@ -13,7 +13,7 @@ public class ex_13460 {
     static char[][]board;
     static boolean flag;
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("code/src/input/13460.txt"));
+        System.setIn(new FileInputStream("input/13460.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());

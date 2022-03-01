@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class ex_13458 {
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("code/src/input/13458.txt"));
+        System.setIn(new FileInputStream("input/13458.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());

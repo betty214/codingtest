@@ -11,7 +11,7 @@ public class ex_14499 {
     static int[][]map;
     static int []dice=  {0, 0, 0, 0, 0, 0};
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("code/src/input/14490.txt"));
+        System.setIn(new FileInputStream("input/14499.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());

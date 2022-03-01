@@ -20,7 +20,7 @@ public class ex_12100 {
     }
     static int N,answer;
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("code/src/input/12100.txt"));
+        System.setIn(new FileInputStream("input/12100.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         int[][]board=new int[N][N];

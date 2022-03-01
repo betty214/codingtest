@@ -31,7 +31,7 @@ public class ex_3190 {
         }
     }
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("code/src/input/3190.txt"));
+        System.setIn(new FileInputStream("input/3190.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         K = Integer.parseInt(br.readLine());
