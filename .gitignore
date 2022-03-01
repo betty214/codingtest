@@ -1,5 +1,4 @@
 /.idea
-/out
 codingtest.iml
 goorm.manifest
-/미완
+.DS_Store

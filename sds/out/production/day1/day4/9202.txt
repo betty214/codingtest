@@ -1,8 +1,0 @@
-1
-ABA
-
-1
-ABCD
-EFGH
-IJKL
-MNOP
