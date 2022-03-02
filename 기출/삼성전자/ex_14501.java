@@ -32,9 +32,6 @@ public class ex_14501 {
             }
             DP[i+1]=Math.max(DP[i+1],DP[i]);
         }
-        for(int i=0;i<=N;i++) {
-            System.out.print(DP[i]+" ");
-        }
         System.out.println(DP[N]);
 
     }
