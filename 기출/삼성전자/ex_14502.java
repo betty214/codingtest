@@ -28,7 +28,7 @@ public class ex_14502 {
                     '}';
         }
     }
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws IOException {
         System.setIn(new FileInputStream("input/14502.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
