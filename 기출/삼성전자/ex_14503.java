@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class ex_14503 {
     static int[] dx={0,-1,0,1};
     static int[] dy={-1,0,1,0};
-    static int N,M;
+    static int N,M,answer;
     static int [][]room;
     static boolean[][]visited;
     public static void main(String[] args) throws IOException {
@@ -32,40 +32,40 @@ public class ex_14503 {
                 room[i][j]=Integer.parseInt(st.nextToken());
             }
         }
-        int tempD=d;
-        int answer=0;
-        int count=0;
-        while(true){
-            if(visited[r][c]) break;
-            if(room[r][c]==0) {
-                room[r][c]=2;
-                answer++;
-                count=0;
-                visited[r][c]=true;
-            }
-            int cx=r+dx[tempD];
-            int cy=c+dy[tempD];
-            if(room[cx][cy]==0){
-                r=cx;
-                c=cy;
-            }else{
-                tempD--;
-                count++;
-                if(tempD==-1) tempD=3;
-                if(count==4){
-                    if(room[r-dx[tempD]][c-dy[tempD]]!=1){
-                        r-=dx[tempD];
-                        c-=dy[tempD];
-                    } else{
-                        break;
-                    }
-                }
-            }
-
-        }
+        answer=0;
+        visited[r][c]=true;
+        DFS(r,c,d,0);
         print();
         System.out.println(answer);
-    }static void print(){
+    }static void DFS(int x, int y, int dir,int count){
+        System.out.println(x+" "+y+" "+count);
+        if(room[x][y]==0) {
+            room[x][y]=2;
+            answer++;
+        }
+        int cx=x+dx[dir];
+        int cy=y+dy[dir];
+        if(room[cx][cy]==0 ){
+            DFS(cx,cy,dir,count);
+        }else{
+            dir--;
+            count++;
+            if(dir==-1) dir=3;
+            if(count==4){
+                if(room[x-dx[dir]][y-dy[dir]]!=1){
+                    x-=dx[dir];
+                    y-=dy[dir];
+                    count=0;
+                }
+            }
+            if(!visited[x][y]){
+                visited[x][y]=true;
+                DFS(x,y,dir,count);
+                visited[x][y]=false;
+            }
+        }
+    }
+    static void print(){
         for(int i=0;i<N;i++){
             for(int j=0;j<M;j++){
                 System.out.print(room[i][j]+" ");
