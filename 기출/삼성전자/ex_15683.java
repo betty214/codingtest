@@ -99,7 +99,7 @@ public class ex_15683 {
                     DFS(index+1,temp);
                 }
                 break;
-            case 3: //무한루프
+            case 3:
                 for(int i=0;i<2;i++){
                     for(int j=2;j<4;j++){
                         int[][]temp=new int[N][M];
