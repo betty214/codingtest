@@ -9,8 +9,8 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class ex_16235 {
-    static ArrayList<Tree>t,dead;
-    static int [][]A,land,treeNum;
+    static ArrayList<Tree>t,dead,temp;
+    static int [][]A,land;
     static int N;
     static int[]dx={1,-1,0,0,1,1,-1,-1};
     static int[]dy={0,0,1,-1,1,-1,1,-1};
@@ -49,7 +49,6 @@ public class ex_16235 {
         int K = Integer.parseInt(st.nextToken());
         A =new int[N][N];
         land=new int[N][N];
-        treeNum=new int[N][N];
         t = new ArrayList<>();
         dead=new ArrayList<>();
 
@@ -66,22 +65,22 @@ public class ex_16235 {
             int y = Integer.parseInt(st.nextToken());
             int z = Integer.parseInt(st.nextToken());
             t.add(new Tree(x,y,z));
-            treeNum[x][y]++;
         }
         for(int i=0;i<K;i++){
             Collections.sort(t);
             spring();
             summer();
-            authum();
+            autumn();
             winter();
         }
+        System.out.println(t.size());
     }static void spring(){
-        ArrayList<Tree>temp = new ArrayList<>();
+        temp = new ArrayList<>();
         for(int i=0;i<t.size();i++){
             Tree now = t.get(i);
-            if(land[now.x][now.y]<now.year) now.death=true;
+            if(land[now.x-1][now.y-1]<now.year) now.death=true;
             else {
-                land[now.x][now.y]-=now.year;
+                land[now.x-1][now.y-1]-=now.year;
                 now.year++;
             }
         }
@@ -98,21 +97,31 @@ public class ex_16235 {
     }static void summer(){
         for(int i=0;i< dead.size();i++){
             Tree now = dead.get(i);
-            land[now.x][now.y]+=Math.floor(now.year/2);
+            land[now.x-1][now.y-1]+=(int)(now.year/2);
         }
-    }static void authum(){
+        dead.clear();
+    }static void autumn(){
         for(int i=0;i<t.size();i++) {
             Tree now = t.get(i);
             if(now.year%5==0){
                 for(int j=0;j<8;j++){
                     int cx=now.x+dx[j];
-                    int cy=now.y=dy[j];
-                    if(check())
+                    int cy=now.y+dy[j];
+                    if(check(cx-1,cy-1)){
+                        t.add(new Tree(cx,cy,1));
+                    }
                 }
             }
         }
     }static void winter(){
-
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                land[i][j]+=A[i][j];
+            }
+        }
+    }static boolean check(int x, int y){
+        if(x<0||y<0||x>=N||y>=N) return false;
+        return true;
     }
     static void print(){
         for(int i=0;i<t.size();i++) {
