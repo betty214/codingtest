@@ -123,9 +123,4 @@ public class ex_16235 {
         if(x<0||y<0||x>=N||y>=N) return false;
         return true;
     }
-    static void print(){
-        for(int i=0;i<t.size();i++) {
-            System.out.print(t.get(i));
-        }
-    }
 }
