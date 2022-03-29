@@ -115,12 +115,5 @@ public class ex_17140 {
             maxR=Math.max(maxR,arr.size()*2);
         }
         lenR=maxR;
-    }static void print(){
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
-                System.out.print(A[i][j]+" ");
-            }
-            System.out.println();
-        }
     }
 }
