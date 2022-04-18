@@ -46,9 +46,13 @@ public class ex_17142 {
                 if(lab[i][j]==0) blank++;
             }
         }
-        comb(0,0,new boolean[virus.size()]);
-        if(answer==Integer.MAX_VALUE) System.out.println(-1);
-        else System.out.println(answer-1);
+        if(blank==0) System.out.println(0);
+        else{
+            comb(0,0,new boolean[virus.size()]);
+            if(answer==Integer.MAX_VALUE) System.out.println(-1);
+            else System.out.println(answer-1);
+        }
+
     }static void comb(int start, int depth, boolean[]visited){
         if(depth==M) {
             time(visited);
@@ -87,16 +91,16 @@ public class ex_17142 {
                     int cx=dx[i]+now.x;
                     int cy=dy[i]+now.y;
                     if(check(cx,cy)){
-                        if(temp[cx][cy]==0 || temp[cx][cy]==-1){
+                        if(temp[cx][cy]==0 ||temp[cx][cy]==-1 ){
                             temp[cx][cy]=2;
                             pq.add(new Node(cx,cy));
                         }
                     }
                 }
-            }
+            }if(check2()) break;
         }
         if(check2()){
-            answer=Math.min(count, answer);
+            answer=Math.min(count+1, answer);
         }
 
     }static void copy(){
@@ -114,14 +118,5 @@ public class ex_17142 {
                 if(temp[i][j]==0) return false;
             }
         }return true;
-    }
-    static void print(){
-        for(int i=0;i<N;i++){
-            for(int j=0;j<N;j++){
-                System.out.print(temp[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println();
     }
 }
