@@ -53,14 +53,11 @@ public class ex_17837 {
         while(flag){
             for(int i=0;i<K;i++){
                 determine(p[i],i);
-                print();
             }
-
-            System.out.println(count);
-            if(count>10) break;
+            if(count>1000) break;
             count++;
         }
-        if(count>10) System.out.println(-1);
+        if(count>1000) System.out.println(-1);
         else System.out.println(count);
     }static void determine(piece now,int index){
         int cx,cy;
@@ -74,7 +71,7 @@ public class ex_17837 {
                 }else{
                     if(check(cx-2,cy)){
                         move(now.x,now.y,cx-2,cy,index);
-                    }else p[index].dir=2;
+                    }p[index].dir=2;
                 }
                 break;
             //왼쪽
@@ -86,7 +83,7 @@ public class ex_17837 {
                 }else{
                     if(check(cx+2,cy)){
                         move(now.x,now.y,cx+2,cy,index);
-                    }else p[index].dir=1;
+                    }p[index].dir=1;
                 }
                 break;
             //위쪽
@@ -98,7 +95,7 @@ public class ex_17837 {
                 }else{
                     if(check(cx,cy+2)){
                         move(now.x,now.y,cx,cy+2,index);
-                    }else p[index].dir=4;
+                    }p[index].dir=4;
                 }
                 break;
             //아래쪽
@@ -110,19 +107,23 @@ public class ex_17837 {
                 }else{
                     if(check(cx,cy-2)){
                         move(now.x,now.y,cx,cy-2,index);
-                    }else p[index].dir=3;
+                    }p[index].dir=3;
                 }
                 break;
         }
+        for(int i=1;i<=N;i++){
+            for(int j=1;j<=N;j++){
+                if(up[i][j].size()>=4) {
+                    flag=false;
+                }
+            }
+        }
     }static void move(int sx,int sy, int ex,int ey,int idx){
         int len=up[sy][sx].size();
-        if(len>=4) {
-            flag=false;
-            return;
-        }
         int index=up[sy][sx].indexOf(idx);
         int[]temp=new int[len-index];
         int count=0;
+        if(ex==sx && ey==sy) return;
         if(chess[ey][ex]==1){
             for(int i=len-1;i>=index;i--){
                 temp[count]=up[sy][sx].get(i);
@@ -142,19 +143,6 @@ public class ex_17837 {
         for(int i=index;i<len;i++){
             up[sy][sx].remove(index);
         }
-        if(up[ey][ex].size()>=4) {
-            flag=false;
-            return;
-        }
-    }
-    static void print(){
-        for(int i=1;i<=N;i++){
-            for(int j=1;j<=N;j++){
-                System.out.print(up[i][j]+" ");
-            }
-            System.out.println();
-        }
-        System.out.println();
     }static boolean check(int x,int y){
         if(x>N || y>N || x<=0 || y<=0) return false;
         else if(chess[y][x]==2) return false;
